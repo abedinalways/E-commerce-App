@@ -6,6 +6,8 @@ import { addOrder } from '../../store/orderSlice';
 import { clearCart } from '../../store/cartSlice';
 import { CheckoutFormData, Order } from '../../types';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import toast from 'react-hot-toast';
 
 const CheckoutForm = () => {
   const router = useRouter();
@@ -66,7 +68,6 @@ const CheckoutForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!validateForm() || items.length === 0) return;
 
     setIsSubmitting(true);
@@ -88,9 +89,11 @@ const CheckoutForm = () => {
       dispatch(addOrder(order));
       dispatch(clearCart());
 
+      toast.success('Thank you for your shopping 🎉');
       router.push(`/orders?success=${order.id}`);
     } catch (error) {
       console.error('Order submission failed:', error);
+      toast.error('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -129,12 +132,22 @@ const CheckoutForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <motion.form
+      onSubmit={handleSubmit}
+      className="space-y-6 bg-white p-8 rounded-xl shadow-xl border border-gray-200 max-w-xl mx-auto"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-center mb-6">
+        Checkout
+      </h2>
+
       {/* Full Name */}
-      <div >
+      <div>
         <label
           htmlFor="fullName"
-          className="block text-sm font-medium text-gray-800 mb-1"
+          className="block text-sm font-medium text-gray-700 mb-1"
         >
           Full Name *
         </label>
@@ -144,10 +157,10 @@ const CheckoutForm = () => {
           name="fullName"
           value={formData.fullName}
           onChange={handleInputChange}
-          className={`w-full px-3 py-2 border rounded-md text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             errors.fullName ? 'border-red-500' : 'border-gray-300'
-          }`}
-          placeholder="Enter your full name"
+          } text-gray-900`}
+          placeholder="John Doe"
         />
         {errors.fullName && (
           <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
@@ -168,10 +181,10 @@ const CheckoutForm = () => {
           value={formData.shippingAddress}
           onChange={handleInputChange}
           rows={3}
-          className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-4 py-3 text-gray-900 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             errors.shippingAddress ? 'border-red-500' : 'border-gray-300'
           }`}
-          placeholder="Enter your complete shipping address"
+          placeholder="1234 Street Name, City, Country"
         />
         {errors.shippingAddress && (
           <p className="text-red-500 text-sm mt-1">{errors.shippingAddress}</p>
@@ -192,10 +205,10 @@ const CheckoutForm = () => {
           name="phoneNumber"
           value={formData.phoneNumber}
           onChange={handleInputChange}
-          className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-4 py-2 text-gray-900 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             errors.phoneNumber ? 'border-red-500' : 'border-gray-300'
           }`}
-          placeholder="Enter your phone number"
+          placeholder="+880123456789"
         />
         {errors.phoneNumber && (
           <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>
@@ -203,10 +216,11 @@ const CheckoutForm = () => {
       </div>
 
       {/* Submit Button */}
-      <button
+      <motion.button
+        whileTap={{ scale: 0.95 }}
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
+        className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center shadow-md disabled:opacity-60"
       >
         {isSubmitting ? (
           <>
@@ -235,8 +249,8 @@ const CheckoutForm = () => {
         ) : (
           `Place Order - $${(totalAmount * 1.1).toFixed(2)}`
         )}
-      </button>
-    </form>
+      </motion.button>
+    </motion.form>
   );
 };
 
