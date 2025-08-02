@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>NextShop - Modern E-commerce</title>
+        <title>ShopSphere- Modern E-commerce</title>
         <meta
           name="description"
           content="A professional e-commerce site built with Next.js."
@@ -26,13 +26,13 @@ export default function App({ Component, pageProps }: AppProps) {
             toastOptions={{
               success: {
                 style: {
-                  background: '#4ade80', // green
+                  background: '#4ade80', 
                   color: '#000',
                 },
               },
               error: {
                 style: {
-                  background: '#f87171', // red
+                  background: '#f87171', 
                   color: '#000',
                 },
               },

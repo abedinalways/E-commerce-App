@@ -38,14 +38,14 @@ const CartItem = ({ item }: CartItemProps) => {
       <div className="flex items-center space-x-2">
         <button
           onClick={() => handleQuantityChange(item.quantity - 1)}
-          className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full"
+          className="w-8 h-8 flex items-center justify-center bg-gray-500 hover:bg-gray-200 rounded-full"
         >
           -
         </button>
         <span className="w-8 text-center">{item.quantity}</span>
         <button
           onClick={() => handleQuantityChange(item.quantity + 1)}
-          className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full"
+          className="w-8 h-8 flex items-center justify-center bg-gray-500 hover:bg-gray-200 rounded-full"
         >
           +
         </button>
