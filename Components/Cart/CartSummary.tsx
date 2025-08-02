@@ -7,8 +7,10 @@ const CartSummary = () => {
   );
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border">
-      <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
+    <div className="bg-white p-6 rounded-lg shadow-sm border text-purple-600">
+      <h3 className="text-lg font-semibold mb-4 text-blue-600">
+        Order Summary
+      </h3>
 
       <div className="space-y-2 mb-4">
         <div className="flex justify-between">
@@ -19,7 +21,7 @@ const CartSummary = () => {
           <span>Shipping</span>
           <span className="text-green-600">FREE</span>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between text-purple-600">
           <span>Tax</span>
           <span>${(totalAmount * 0.1).toFixed(2)}</span>
         </div>

@@ -37,8 +37,8 @@ const Orders = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">My Orders</h1>
-          <p className="text-gray-600 mt-2">
+          <h1 className="text-3xl font-bold text-gray-100">My Orders</h1>
+          <p className="text-gray-200 mt-2">
             View and manage your order history
           </p>
         </div>
@@ -163,7 +163,9 @@ const Orders = () => {
                 {selectedOrder ? (
                   <div className="bg-white rounded-lg shadow-sm p-6">
                     <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-lg font-semibold">Order Details</h3>
+                      <h3 className="text-lg font-semibold text-blue-600">
+                        Order Details
+                      </h3>
                       <button
                         onClick={() => setSelectedOrder(null)}
                         className="text-gray-400 hover:text-gray-600"
@@ -187,19 +189,21 @@ const Orders = () => {
                     <div className="space-y-4">
                       <div>
                         <p className="text-sm text-gray-600">Order ID</p>
-                        <p className="font-medium">{selectedOrder.id}</p>
+                        <p className="font-medium text-purple-600">
+                          {selectedOrder.id}
+                        </p>
                       </div>
 
                       <div>
                         <p className="text-sm text-gray-600">Customer</p>
-                        <p className="font-medium">
+                        <p className="font-medium text-purple-600">
                           {selectedOrder.customerName}
                         </p>
                       </div>
 
                       <div>
                         <p className="text-sm text-gray-600">Phone</p>
-                        <p className="font-medium">
+                        <p className="font-medium text-purple-600">
                           {selectedOrder.phoneNumber}
                         </p>
                       </div>
@@ -208,21 +212,21 @@ const Orders = () => {
                         <p className="text-sm text-gray-600">
                           Shipping Address
                         </p>
-                        <p className="font-medium">
+                        <p className="font-medium text-purple-600">
                           {selectedOrder.shippingAddress}
                         </p>
                       </div>
 
                       <div>
                         <p className="text-sm text-gray-600">Order Date</p>
-                        <p className="font-medium">
+                        <p className="font-medium text-purple-600">
                           {formatDate(selectedOrder.orderDate)}
                         </p>
                       </div>
 
                       <div className="border-t pt-4">
                         <p className="text-sm text-gray-600 mb-2">Items</p>
-                        <div className="space-y-2">
+                        <div className="space-y-2 text-purple-600">
                           {selectedOrder.items.map(item => (
                             <div
                               key={item.id}
@@ -239,7 +243,7 @@ const Orders = () => {
                         </div>
                       </div>
 
-                      <div className="border-t pt-4">
+                      <div className="border-t pt-4 text-purple-600">
                         <div className="flex justify-between font-semibold">
                           <span>Total Amount</span>
                           <span>${selectedOrder.totalAmount.toFixed(2)}</span>

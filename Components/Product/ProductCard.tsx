@@ -14,17 +14,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
           src={product?.image}
           alt={`${product.title} - ${product.category}`}
           fill
-          className="object-cover"
+          className="object-cover border border-gray-400"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
         />
       </div>
-      <div className="p-4">
-        <h3 className="font-semibold text-lg mb-2 line-clamp-2">
-          {product.title}
-        </h3>
+      <div className="p-2">
+        <p className="text-xs font-bold text-purple-600 mb-3">
+        {product.title}
+        </p>
         <p className="text-2xl font-bold text-blue-600 mb-3">
           ${product.price.toFixed(2)}
         </p>
+        
         <div className="flex items-center mb-3">
           <div className="flex text-yellow-400">
             {[...Array(5)].map((_, i) => (
