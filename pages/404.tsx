@@ -3,6 +3,7 @@ import Navbar from '@/Components/Layout/Navbar';
 import Link from 'next/link';
 
 
+
 const NotFoundPage = () => {
   return (
     <>
