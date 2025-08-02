@@ -2,16 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
   
-  body {
-    @apply text-gray-900 bg-gray-50;
+  height: 100%;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  /* Remove any overflow hidden that might break sticky */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Ensure root containers don't interfere with sticky */
+#__next {
+  min-height: 100vh;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
+/* Custom utility classes */
 @layer components {
   .line-clamp-2 {
     display: -webkit-box;
@@ -25,6 +64,46 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300;
+  }
+
+  /* Navbar gradient utilities */
+  .navbar-gradient-bg {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9) 0%, rgba(31, 41, 55, 0.9) 100%);
+  }
+
+  .navbar-gradient-bg-scrolled {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(31, 41, 55, 0.95) 100%);
+  }
+
+  .logo-gradient {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #ef4444 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-purple-pink-red {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #ef4444 100%);
+  }
+
+  .gradient-blue {
+    background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+  }
+
+  .gradient-green {
+    background: linear-gradient(135deg, #4ade80 0%, #10b981 100%);
+  }
+
+  .gradient-orange-red {
+    background: linear-gradient(135deg, #fb923c 0%, #ef4444 100%);
   }
 }
 
@@ -42,5 +121,32 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* Ensure gradient text works */
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .text-transparent {
+    color: transparent;
+  }
+
+  /* Custom backdrop blur utilities */
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+
+  .backdrop-blur-lg {
+    backdrop-filter: blur(16px);
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
   }
 }
