@@ -5,12 +5,30 @@ import Layout from '@/Components/Layout/Layout';
 import ProductGrid from '@/Components/Product/ProductGrid';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-
+import { toast } from 'react-hot-toast';
+import { useState } from 'react';
 interface HomeProps {
   products: Product[];
 }
 
 const Home = ({ products }: HomeProps) => {
+  const [email, setEmail] = useState('');
+  const handleSubscribe = () => {
+    if (!email) {
+      toast.error('Please enter your email!');
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error('Please enter a valid email address!');
+      return;
+    }
+
+   
+    toast.success('Thank you for subscribing!');
+    setEmail('');
+  };
   return (
     <Layout
       title={defaultMeta.title}
@@ -192,10 +210,15 @@ const Home = ({ products }: HomeProps) => {
           <div className="flex flex-col sm:flex-row max-w-md mx-auto gap-4">
             <input
               type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-lg text-gray-900"
             />
-            <button className="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+            <button
+              onClick={handleSubscribe}
+              className="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
               Subscribe
             </button>
           </div>
