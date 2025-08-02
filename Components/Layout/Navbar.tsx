@@ -1,5 +1,7 @@
 'use client';
 import Link from 'next/link';
+
+
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -79,9 +81,14 @@ const Navbar = () => {
                 <ShoppingBag className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                <motion.h1
+                  className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-purple-700 transition-all duration-300"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, ease: 'easeOut' }}
+                >
                   ShopSphere
-                </h1>
+                </motion.h1>
                 <p className="text-xs text-gray-500 hidden sm:block">
                   Professional Shopping
                 </p>

@@ -26,7 +26,7 @@ const Checkout = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-6">
               <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h2 className="text-xl font-semibold mb-4">Order Items</h2>
+                <h2 className="text-xl font-semibold mb-4 text-gray-600">Order Items</h2>
                 <div className="space-y-4">
                   {items.map(item => (
                     <CartItem key={item.id} item={item} />
@@ -35,7 +35,7 @@ const Checkout = () => {
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h2 className="text-xl font-semibold mb-4">
+                <h2 className="text-xl font-semibold mb-4 text-gray-600">
                   Shipping Information
                 </h2>
                 <CheckoutForm/>
