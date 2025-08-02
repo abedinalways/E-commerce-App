@@ -3,10 +3,11 @@ import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 
 import { Product } from '../../types';
-import { addToCart } from '../../store/cartSlice';
+
 import { generateProductMeta } from '../../utils/seo';
 import Layout from '@/Components/Layout/Layout';
 import Link from 'next/link';
+import { addToCart } from '@/store/cartSlice';
 
 interface ProductDetailsProps {
   product: Product;

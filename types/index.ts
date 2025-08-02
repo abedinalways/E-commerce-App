@@ -1,3 +1,4 @@
+// Product related types
 export interface Product {
   id: number;
   title: string;
@@ -11,6 +12,7 @@ export interface Product {
   };
 }
 
+// Cart related types
 export interface CartItem {
   id: number;
   title: string;
@@ -19,6 +21,7 @@ export interface CartItem {
   quantity: number;
 }
 
+// Order related types
 export interface Order {
   id: string;
   customerName: string;
@@ -30,6 +33,7 @@ export interface Order {
   orderDate: string;
 }
 
+// Form related types
 export interface CheckoutFormData {
   fullName: string;
   shippingAddress: string;

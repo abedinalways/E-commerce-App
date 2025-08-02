@@ -20,10 +20,11 @@ export default function Document() {
               '@type': 'WebSite',
               name: 'EcomStore',
               description: 'Premium e-commerce store with quality products',
-              url: 'https://your-domain.com',
+              url: 'https://bigshop-rho.vercel.app/',
               potentialAction: {
                 '@type': 'SearchAction',
-                target: 'https://your-domain.com/search?q={search_term_string}',
+                target:
+                  'https://bigshop-rho.vercel.app/search?q={search_term_string}',
                 'query-input': 'required name=search_term_string',
               },
             }),

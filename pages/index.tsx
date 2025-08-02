@@ -240,6 +240,7 @@ export const getStaticProps: GetStaticProps = async () => {
       revalidate: 3600, // Revalidate every hour
     };
   } catch (error) {
+    console.log(error)
     return {
       props: {
         products: [],

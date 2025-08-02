@@ -2,13 +2,17 @@
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}', // Add this if using app directory
+    './Components/**/*.{js,ts,jsx,tsx,mdx}',
+    './store/**/*.{js,ts,jsx,tsx,mdx}',
+    './styles/**/*.css',
+    './types/**/*.{js,ts,jsx,tsx,mdx}',
+    
+    './utils/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        // Custom gradient colors for better compatibility
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',

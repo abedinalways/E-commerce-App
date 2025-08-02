@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /product/
+Allow: /orders
+Allow: /checkout
+
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+Sitemap: https://bigshop-rho.vercel.app/sitemap.xml

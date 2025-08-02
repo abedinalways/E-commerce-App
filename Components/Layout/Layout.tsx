@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import Navbar from './Navbar';
+
 import Footer from './Footer';
 import { ReactNode } from 'react';
 import { Sora } from 'next/font/google';
+import Navbar from './Navbar';
 const sora = Sora({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
@@ -44,7 +45,7 @@ const Layout = ({
         />
       </Head>
       <div className={`${sora.className} flex flex-col relative`}>
-        <Navbar />
+         <Navbar/>
         <main className="flex-grow">{children}</main>
         <Footer />
       </div>

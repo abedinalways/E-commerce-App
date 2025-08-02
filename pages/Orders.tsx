@@ -37,8 +37,8 @@ const Orders = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-100">My Orders</h1>
-          <p className="text-gray-200 mt-2">
+          <h1 className="text-3xl font-bold text-white">My Orders</h1>
+          <p className="text-white mt-2">
             View and manage your order history
           </p>
         </div>
@@ -97,7 +97,9 @@ const Orders = () => {
             <div className="lg:col-span-2">
               <div className="bg-white rounded-lg shadow-sm overflow-hidden">
                 <div className="px-6 py-4 border-b border-gray-200">
-                  <h2 className="text-lg font-semibold">Order History</h2>
+                  <h2 className="text-lg font-semibold text-gray-900">
+                    Order History
+                  </h2>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full">
@@ -189,21 +191,21 @@ const Orders = () => {
                     <div className="space-y-4">
                       <div>
                         <p className="text-sm text-gray-600">Order ID</p>
-                        <p className="font-medium text-purple-600">
+                        <p className="font-medium text-gray-900">
                           {selectedOrder.id}
                         </p>
                       </div>
 
                       <div>
                         <p className="text-sm text-gray-600">Customer</p>
-                        <p className="font-medium text-purple-600">
+                        <p className="font-medium text-gray-900">
                           {selectedOrder.customerName}
                         </p>
                       </div>
 
                       <div>
                         <p className="text-sm text-gray-600">Phone</p>
-                        <p className="font-medium text-purple-600">
+                        <p className="font-medium text-gray-900">
                           {selectedOrder.phoneNumber}
                         </p>
                       </div>
@@ -212,30 +214,30 @@ const Orders = () => {
                         <p className="text-sm text-gray-600">
                           Shipping Address
                         </p>
-                        <p className="font-medium text-purple-600">
+                        <p className="font-medium text-gray-900">
                           {selectedOrder.shippingAddress}
                         </p>
                       </div>
 
                       <div>
                         <p className="text-sm text-gray-600">Order Date</p>
-                        <p className="font-medium text-purple-600">
+                        <p className="font-medium text-gray-900">
                           {formatDate(selectedOrder.orderDate)}
                         </p>
                       </div>
 
                       <div className="border-t pt-4">
                         <p className="text-sm text-gray-600 mb-2">Items</p>
-                        <div className="space-y-2 text-purple-600">
+                        <div className="space-y-2">
                           {selectedOrder.items.map(item => (
                             <div
                               key={item.id}
                               className="flex justify-between text-sm"
                             >
-                              <span className="truncate mr-2">
+                              <span className="truncate mr-2 text-gray-900">
                                 {item.title}
                               </span>
-                              <span>
+                              <span className="text-gray-900">
                                 {item.quantity}x ${item.price.toFixed(2)}
                               </span>
                             </div>
@@ -243,8 +245,8 @@ const Orders = () => {
                         </div>
                       </div>
 
-                      <div className="border-t pt-4 text-purple-600">
-                        <div className="flex justify-between font-semibold">
+                      <div className="border-t pt-4">
+                        <div className="flex justify-between font-semibold text-gray-900">
                           <span>Total Amount</span>
                           <span>${selectedOrder.totalAmount.toFixed(2)}</span>
                         </div>

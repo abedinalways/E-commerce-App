@@ -90,7 +90,7 @@ const CheckoutForm = () => {
       dispatch(clearCart());
 
       toast.success('Thank you for your shopping 🎉');
-      router.push(`/orders?success=${order.id}`);
+      router.push(`/Orders?success=${order.id}`);
     } catch (error) {
       console.error('Order submission failed:', error);
       toast.error('Something went wrong. Please try again.');

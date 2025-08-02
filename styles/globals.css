@@ -2,151 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset and base styles */
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  
-  height: 100%;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  /* Remove any overflow hidden that might break sticky */
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-/* Ensure root containers don't interfere with sticky */
-#__next {
-  min-height: 100vh;
-}
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
-/* Custom utility classes */
-@layer components {
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
-  }
-
-  .card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300;
-  }
-
-  /* Navbar gradient utilities */
-  .navbar-gradient-bg {
-    background: linear-gradient(135deg, rgba(17, 24, 39, 0.9) 0%, rgba(31, 41, 55, 0.9) 100%);
-  }
-
-  .navbar-gradient-bg-scrolled {
-    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(31, 41, 55, 0.95) 100%);
-  }
-
-  .logo-gradient {
-    background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #ef4444 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .gradient-purple-pink-red {
-    background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #ef4444 100%);
-  }
-
-  .gradient-blue {
-    background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
-  }
-
-  .gradient-green {
-    background: linear-gradient(135deg, #4ade80 0%, #10b981 100%);
-  }
-
-  .gradient-orange-red {
-    background: linear-gradient(135deg, #fb923c 0%, #ef4444 100%);
-  }
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-in-out;
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom gradient utilities */
+@layer components {
+  .gradient-bg {
+    @apply bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900;
   }
   
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
   }
-
-  /* Ensure gradient text works */
-  .bg-clip-text {
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-
-  .text-transparent {
-    color: transparent;
-  }
-
-  /* Custom backdrop blur utilities */
-  .backdrop-blur-xs {
-    backdrop-filter: blur(2px);
-  }
-
-  .backdrop-blur-md {
-    backdrop-filter: blur(12px);
-  }
-
-  .backdrop-blur-lg {
-    backdrop-filter: blur(16px);
-  }
-
-  .backdrop-blur-xl {
-    backdrop-filter: blur(24px);
+  
+  .glass-effect {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
   }
 }
